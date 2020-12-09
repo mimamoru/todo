@@ -4,10 +4,22 @@ import './styles/main.css'
 
 const Input=(props)=>{
     const [input,setInput] = useState("");
+    
+    const getKey = () => Math.random().toString(32).substring(2);
+    
+    const handleSubmit =()=>{     
+        props.handleSubmit({
+            key: getKey(),
+            text: input,
+            done: false
+          }
+          );
+        setInput("");
+    }
     return (
         <>
-        <input type="text" onChange={handleChange}/>
-        <button onClick={()=>props.submit(input)}></button>
+        <input type="text" onChange={(e)=>{setInput(e.target,value)}}>{input}</input>
+        <button onClick={handleSubmit}></button>
         </>
     );
 }
