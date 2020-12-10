@@ -1,5 +1,5 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import './styles/main.css'
+//import './styles/main.css'
 //import {TaskList,Filter,Input} from './index'
 
 const Input=(props)=>{
@@ -7,8 +7,8 @@ const Input=(props)=>{
     
     const getKey = () => Math.random().toString(32).substring(2);
     
-    const handleSubmit =()=>{     
-        props.handleSubmit({
+    const handleSubmit =()=>{        
+        props.submit({
             key: getKey(),
             text: input,
             done: false
@@ -18,8 +18,8 @@ const Input=(props)=>{
     }
     return (
         <>
-        <input type="text" onChange={(e)=>{setInput(e.target,value)}}>{input}</input>
-        <button onClick={handleSubmit}></button>
+        <input type="text" onChange={(e)=>{setInput(e.target.value)}} value={input}/>
+        <button onClick={handleSubmit}>add</button>
         </>
     );
 }
