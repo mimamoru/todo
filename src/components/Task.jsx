@@ -1,15 +1,13 @@
-import React, {useState, useCallback, useEffect} from 'react';
-//import './styles/main.css'
-//import {TaskList,Filter,Input} from './index'
 
 const Task=(props)=>{
+    
     return (
         <li>
         <label>
       <input
         type="checkbox"
-        checked={props.done}
-        onChange={()=>props.func(props.key)}
+        checked={props.state}
+        onChange={()=>props.func(props.id)}
       />
       <span>
         {props.task}

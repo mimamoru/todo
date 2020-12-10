@@ -1,16 +1,17 @@
 import React, { useState, useCallback, useEffect } from 'react';
-//import './styles/main.css'
 import { TaskList, Filter, Input } from './index'
 
 const Todo = () => {
     const [tasks, setTasks] = useState([]);
-    const [filter, setFilter] = useState("ALL");
+    const [filter, setFilter] = useState("All");
 
-    const handleSubmit = useCallback((input) => {     
-        setTasks([...tasks, input])
-        setTimeout(console.log(tasks), 1000);
-        
+    const handleSubmit = useCallback((input) => {
+        console.log([...[], input]);
+        console.log([...tasks, input]);
+        setTasks(pre => [...pre, input]);
+        console.log(tasks);
     }, [setTasks]);
+
 
     const handleFilter = useCallback((filter) => {
         setFilter(filter);
@@ -18,15 +19,15 @@ const Todo = () => {
 
     const handleCheck = useCallback((key) => {
         const arrCopy = [...tasks];
-        const idx = arrCopy.findIndex(e => e.key === key);
-        arrCopy[idx].done = !arrCopy[idx].done;
-        setTasks(arrCopy);
+        const idx = tasks.findIndex(e => e.key === key);
+        console.log(tasks);
+        //arrCopy[idx]["done"] = !arrCopy[idx]["done"];
+        //setTasks(arrCopy);
     }, [setTasks]);
-   
     return (
         <>
             <div>
-                <Input submit={handleSubmit} />
+                <Input push={handleSubmit} />
             </div>
             <div>
                 <div>

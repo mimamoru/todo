@@ -1,14 +1,14 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState} from 'react';
 //import './styles/main.css'
-//import {TaskList,Filter,Input} from './index'
 
 const Input=(props)=>{
     const [input,setInput] = useState("");
     
     const getKey = () => Math.random().toString(32).substring(2);
     
-    const handleSubmit =()=>{        
-        props.submit({
+    const handleSubmit =()=>{   
+        console.log(input)     
+        props.push({
             key: getKey(),
             text: input,
             done: false

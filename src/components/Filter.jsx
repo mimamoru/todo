@@ -1,15 +1,25 @@
-import React, {useState, useCallback, useEffect} from 'react';
-//import './styles/main.css'
-//import {TaskList,Filter,Input} from './index'
 
-const Filter=(props)=>{
-    const fiilerList=["All","TODO","DONE"]
-    
+
+const Filter = (props) => {
+    const fiilerList = ["All", "Todo", "Done"]
     return (
-        <>
-        {fiilerList.map(e=>(<a 
-        onClick={()=>props.filter(e)}>{e}</a>))}
-        </>
-    );
+        <ul>
+           {fiilerList.map(e => {
+               return <li><a onClick={() => props.filter(e)}>{e}</a></li>
+            })}
+           
+        </ul>
+    )
+    // return (
+    //     <ul>
+    //         {fiilerList.map(e => {
+    //             rerurn
+    //                 <li>
+    //                 <a onClick={() => props.filter(e)}>{e}</a>
+    //             </li>
+    //     })}
+        
+    //     </ul >
+    // )
 }
 export default Filter;

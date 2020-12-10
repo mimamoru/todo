@@ -3,16 +3,14 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { Task} from './index'
 
 const TaskList = (props) => {
-    console.log(props.tasks)
     const displayList =props.tasks.filter(
-        e=>{return props.filter==="ALL"?true:props.filter=="DONE"?e.done:!e.done});
-        console.log(displayList)
+        e=>{return props.filter==="All"?true:props.filter=="Done"?e.done:!e.done});
+        console.log(displayList);
     return (
         <ul>
-            {displayList.map((e=>{
-                (<Task key={e.key} func={e.func} task={e.task} state={e.done}/>)
-            }))}
-          
+           {displayList.map(e => {
+                return <Task key={e.key} id={e.key} func={props.func} task={e.text} state={e.done}/>
+            })}
            
         </ul>
     )
