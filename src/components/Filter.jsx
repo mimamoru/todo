@@ -1,25 +1,30 @@
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
 
+const useStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+    },
+});
 
 const Filter = (props) => {
-    const fiilerList = ["All", "Todo", "Done"]
+    const classes = useStyles();
+    const fiilerList = ["All", "Todo", "Done"];
     return (
-        <ul>
-           {fiilerList.map(e => {
-               return <li><a onClick={() => props.filter(e)}>{e}</a></li>
-            })}
-           
-        </ul>
+        <Paper className={classes.root}>
+            <Tabs
+                value={fiilerList.indexOf(props.value)}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+            >
+                {fiilerList.map((e, i) => {
+                    return <Tab key={i} onClick={() => props.filter(e)} label={e} />
+                })}
+            </Tabs>
+        </Paper>
     )
-    // return (
-    //     <ul>
-    //         {fiilerList.map(e => {
-    //             rerurn
-    //                 <li>
-    //                 <a onClick={() => props.filter(e)}>{e}</a>
-    //             </li>
-    //     })}
-        
-    //     </ul >
-    // )
 }
 export default Filter;

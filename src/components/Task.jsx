@@ -1,19 +1,20 @@
+import Checkbox from '@material-ui/core/Checkbox';
+const Task = (props) => {
 
-const Task=(props)=>{
-    
-    return (
-        <li>
-        <label>
-      <input
-        type="checkbox"
-        checked={props.state}
-        onChange={()=>props.func(props.id)}
-      />
-      <span>
-        {props.task}
-      </span>
-    </label>
-    </li>
-      );
+  return (
+    <div>
+      <label>
+        <Checkbox
+          checked={props.state}
+          onChange={() => props.func(props.id)}
+          color="primary"
+          inputProps={{ 'aria-label': 'secondary checkbox' }}
+        />
+        <span>
+          {props.task}
+        </span>
+      </label>
+    </div>
+  );
 }
 export default Task;
